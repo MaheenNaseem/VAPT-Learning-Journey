@@ -23,16 +23,21 @@ We use this password to login into molly’s server:
 <img width="820" height="603" alt="image" src="https://github.com/user-attachments/assets/038d9a27-3898-4200-95bc-2feb4246721c" />
 
 Once in we can look search through the directory. Here we have the flag2.txt file which we access after logging in.
+
 <img width="690" height="191" alt="image" src="https://github.com/user-attachments/assets/4c201903-d872-4376-ad2e-883ab8202485" />
 
 Second port that was open was http, after checking the IP we find a form exiting on the page. We use burpsuite to capture the login request send to the server, and analyze the parameter written inside it.
+
 <img width="418" height="460" alt="image" src="https://github.com/user-attachments/assets/7386dc00-d4fa-4f78-8f73-244ac83651e8" />
 
 Once we have the parameter names we use hydra. We do the same process as ssh request, although instead of the ssh we use http-post-form (the service is an http service which is performing post operation and the webpage type is a form). Then we provide it with the end point /login (we know it from the webpage we visited) then we give it the username and password placeholder that hydra will swap out the password from wordlist at. 
+
 <img width="975" height="108" alt="image" src="https://github.com/user-attachments/assets/856e9aaa-ce12-432c-8126-6f60cfdf2ea1" />
 
 
 <img width="975" height="304" alt="image" src="https://github.com/user-attachments/assets/61dbf994-c26d-4e2e-96ae-a42b46c6a168" />
+
 After the request is completed executing it have bought use multiple password that are valid for the user. We then try to use these password and judge which one is the correct one. Then we go back to the http IP address set username and password and it allows us the captured flag code.
+
 
 <img width="449" height="519" alt="image" src="https://github.com/user-attachments/assets/518513d6-412a-4f62-ac5d-8d98ef80e235" />
